@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            fx:controller="com.example.store_app.Controllers.HelloController">
+    <children>
+        <ImageView fitHeight="600.0" fitWidth="799.0" layoutX="-1.0" pickOnBounds="true">
+            <image>
+                <Image url="D:\My_Works\Store Java GUI Project\R.jpg"/>
+            </image>
+        </ImageView>
+        <Label layoutX="336.0" layoutY="18.0" prefHeight="46.0" prefWidth="126.0" text="My Store" textFill="WHITE"
+               wrapText="true">
+            <font>
+                <Font name="System Bold" size="25.0"/>
+            </font>
+        </Label>
+        <TabPane layoutX="14.0" layoutY="80.0" prefHeight="520.0" prefWidth="422.0" tabClosingPolicy="UNAVAILABLE"
+                 tabMinWidth="47.0">
+            <tabs>
+                <Tab onSelectionChanged="#onSelectionChanged" text="Clothes">
+                    <content>
+                        <AnchorPane>
+                            <children>
+                                <TextField fx:id="clothesTextField" layoutX="14.0" layoutY="14.0" prefHeight="26.0"
+                                           prefWidth="334.0"/>
+                                <Button layoutX="357.0" layoutY="14.0" mnemonicParsing="false"
+                                        onAction="#clothesSearchBtn" text="Search"/>
+                                <ListView fx:id="clothesListView" layoutX="14.0" layoutY="52.0" prefHeight="385.0"
+                                          prefWidth="395.0"/>
+                                <Button layoutX="158.0" layoutY="450.0" mnemonicParsing="false"
+                                        onAction="#addNewClothesBtnClicked" prefHeight="26.0" text="Add new Clothes"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab onSelectionChanged="#onSelectionChanged" text="Dairy">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="dairyTextField" layoutX="14.0" layoutY="14.0" prefHeight="26.0"
+                                           prefWidth="334.0"/>
+                                <Button layoutX="357.0" layoutY="14.0" mnemonicParsing="false" text="Search"/>
+                                <ListView fx:id="dairyListView" layoutX="14.0" layoutY="52.0" prefHeight="385.0"
+                                          prefWidth="395.0"/>
+                                <Button layoutX="164.0" layoutY="450.0" mnemonicParsing="false"
+                                        onAction="#addNewDairyBtnClicked" prefHeight="26.0" text="Add New Dairy"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab onSelectionChanged="#onSelectionChanged" text="Groceries">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="GroceryTextField" layoutX="14.0" layoutY="14.0" prefHeight="26.0"
+                                           prefWidth="334.0"/>
+                                <Button layoutX="357.0" layoutY="14.0" mnemonicParsing="false" text="Search"/>
+                                <ListView fx:id="GroceryListView" layoutX="14.0" layoutY="52.0" prefHeight="385.0"
+                                          prefWidth="395.0"/>
+                                <Button layoutX="158.0" layoutY="450.0" mnemonicParsing="false"
+                                        onAction="#addNewGroceriesBtnClicked" prefHeight="26.0" text="Add New Grocery"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab onSelectionChanged="#onSelectionChanged" text="Electronics">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="electronicsTextField" layoutX="14.0" layoutY="14.0" prefHeight="26.0"
+                                           prefWidth="334.0"/>
+                                <Button layoutX="357.0" layoutY="14.0" mnemonicParsing="false" text="Search"/>
+                                <ListView fx:id="electronicsListView" layoutX="14.0" layoutY="52.0" prefHeight="385.0"
+                                          prefWidth="395.0"/>
+                                <Button layoutX="151.0" layoutY="450.0" mnemonicParsing="false"
+                                        onAction="#addNewElectronicsBtnClicked" prefHeight="26.0"
+                                        text="Add New Electronics"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab onSelectionChanged="#onSelectionChanged" text="Snacks">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="snacksTextField" layoutX="14.0" layoutY="14.0" prefHeight="26.0"
+                                           prefWidth="334.0"/>
+                                <Button layoutX="357.0" layoutY="14.0" mnemonicParsing="false" text="Search"/>
+                                <ListView fx:id="snacksListView" layoutX="14.0" layoutY="52.0" prefHeight="385.0"
+                                          prefWidth="395.0"/>
+                                <Button layoutX="159.0" layoutY="450.0" mnemonicParsing="false"
+                                        onAction="#addNewSnacksBtnClicked" prefHeight="26.0" text="Add New Snacks"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab onSelectionChanged="#onSelectionChanged" text="Fresh Produces">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="freshTextField" layoutX="14.0" layoutY="14.0" prefHeight="26.0"
+                                           prefWidth="334.0"/>
+                                <Button layoutX="357.0" layoutY="14.0" mnemonicParsing="false" text="Search"/>
+                                <ListView layoutX="14.0" layoutY="52.0" prefHeight="385.0" prefWidth="395.0"/>
+                                <Button layoutX="137.0" layoutY="450.0" mnemonicParsing="false"
+                                        onAction="#addNewFreshProducesBtnClicked" prefHeight="26.0"
+                                        text="Add New Fresh Produces"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <AnchorPane fx:id="backgroundId" layoutX="457.0" layoutY="80.0" prefHeight="505.0" prefWidth="342.0"
+                    style="-fx-background-color: transparent;" AnchorPane.rightAnchor="10.0">
+            <children>
+                <ImageView fx:id="detailsImageView" fitHeight="170.0" fitWidth="162.0" layoutX="81.0" layoutY="14.0"
+                           pickOnBounds="true"/>
+                <Text fx:id="detailsText" layoutX="32.0" layoutY="208.0" AnchorPane.topAnchor="200.0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
