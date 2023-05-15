@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            fx:controller="com.example.store_app.Controllers.LoginController">
+    <left>
+        <AnchorPane prefHeight="400.0" prefWidth="154.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"/>
+                <Label layoutX="125.0" layoutY="66.0" text="Username">
+                    <font>
+                        <Font size="27.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="129.0" layoutY="153.0" text="Password">
+                    <font>
+                        <Font size="27.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="usernameId" layoutX="276.0" layoutY="73.0" promptText="Username"/>
+                <Button layoutX="254.0" layoutY="239.0" mnemonicParsing="false" onAction="#submit" text="Submit">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Button>
+                <PasswordField fx:id="passwordId" layoutX="277.0" layoutY="160.0" promptText="Password"/>
+                <Label fx:id="wrongLogin" layoutX="236.0" layoutY="208.0"/>
+            </children>
+        </AnchorPane>
+    </left>
+    <right>
+        <AnchorPane prefHeight="346.0" prefWidth="159.0" BorderPane.alignment="CENTER"/>
+    </right>
+    <top>
+        <Label text="login" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="37.0"/>
+            </font>
+        </Label>
+    </top>
+</BorderPane>
