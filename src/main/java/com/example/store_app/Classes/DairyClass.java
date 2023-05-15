@@ -84,7 +84,7 @@ public class DairyClass implements ClassesBasics {
 
         if (TextField.getText().isEmpty()) {
             dairyListView.setItems(dairyObservableList);
-            dairyObservableList1.removeAll();
+            dairyObservableList1 = null;
         } else {
             for (Dairy c1 : dairyObservableList) {
                 if (c1.getName().toLowerCase().contains(TextField.getText().toLowerCase()) || c1.getSerialNumber().toLowerCase().contains(TextField.getText().toLowerCase())) {
@@ -98,7 +98,11 @@ public class DairyClass implements ClassesBasics {
     @Override
     public void updateItem(Item item) {
         dairyObservableList.set(dairyObservableList.indexOf(item), newDairy());
+        if (dairyObservableList1 != null) {
+            dairyObservableList1.set(dairyObservableList1.indexOf(item), newDairy());
+        }
     }
+
 
     Dairy newDairy() {
         return new Dairy(

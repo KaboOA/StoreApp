@@ -31,14 +31,12 @@ public class ClothesClass implements ClassesBasics {
     TextField clothesYOPTextField;
     CheckBox sCheckboxId;
     TextField clothesSerialNumber;
-
     CheckBox mCheckboxId;
     CheckBox lCheckboxId;
     CheckBox xlCheckboxId;
     TextField clothesImageTextField;
 
     public ClothesClass(ListView<Clothes> clothesListView) {
-
         this.clothesListView = clothesListView;
     }
 
@@ -76,10 +74,11 @@ public class ClothesClass implements ClassesBasics {
 
     @Override
     public void searchItem(TextField clothesTextField) {
+
         clothesObservableList1 = FXCollections.observableArrayList();
         if (clothesTextField.getText().isEmpty()) {
             clothesListView.setItems(clothesObservableList);
-            clothesObservableList1.removeAll();
+            clothesObservableList1 = null;
         } else {
             for (Clothes c1 : clothesObservableList) {
                 if (c1.getName().toLowerCase().contains(clothesTextField.getText().toLowerCase()) || c1.getSerialNumber().toLowerCase().contains(clothesTextField.getText().toLowerCase())) {
@@ -112,6 +111,10 @@ public class ClothesClass implements ClassesBasics {
     @Override
     public void updateItem(Item item) {
         clothesObservableList.set(clothesObservableList.indexOf(item), newClothes());
+        if (clothesObservableList1 != null) {
+            clothesObservableList1.set(clothesObservableList1.indexOf(item), newClothes());
+        }
+
     }
 
     ArrayList<Constants.Sizes> putSizes() {

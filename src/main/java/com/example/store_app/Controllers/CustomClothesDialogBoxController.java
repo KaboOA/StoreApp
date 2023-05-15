@@ -29,6 +29,7 @@ public class CustomClothesDialogBoxController extends Application implements Ini
     public CheckBox xlCheckboxId;
     public Label enterDataLblId;
     public TextField clothesImageTextField;
+    public TextField clothesTextField;
     public TextField clothesSerialNumber;
     @FXML
     Button addNewClotheBtn;

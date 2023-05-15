@@ -26,7 +26,6 @@ import static com.example.store_app.Additions.Constants.isAdmin;
 
 public class HelloController implements Initializable {
 
-
     public TextField clothesTextField;
     public Text detailsText;
     public TextField dairyTextField;

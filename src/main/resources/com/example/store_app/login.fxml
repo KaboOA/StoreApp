@@ -22,12 +22,12 @@
                     </font>
                 </Label>
                 <TextField fx:id="usernameId" layoutX="276.0" layoutY="73.0" promptText="Username"/>
+                <PasswordField fx:id="passwordId" layoutX="277.0" layoutY="160.0" promptText="Password"/>
                 <Button layoutX="254.0" layoutY="239.0" mnemonicParsing="false" onAction="#submit" text="Submit">
                     <font>
                         <Font size="19.0"/>
                     </font>
                 </Button>
-                <PasswordField fx:id="passwordId" layoutX="277.0" layoutY="160.0" promptText="Password"/>
                 <Label fx:id="wrongLogin" layoutX="236.0" layoutY="208.0"/>
             </children>
         </AnchorPane>
