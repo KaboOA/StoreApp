@@ -1,28 +1,65 @@
 package com.example.store_app.Controllers;
 
 import com.example.store_app.Additions.Constants;
+import com.example.store_app.Classes.ClothesClass;
 import com.example.store_app.DataModels.Clothes;
+import com.example.store_app.HelloApplication;
 import javafx.application.Application;
 import javafx.fxml.FXML;
-import javafx.scene.control.DialogPane;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CustomClothesDialogBoxController extends Application {
-    public DialogPane clothesDialogPane;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class CustomClothesDialogBoxController extends Application implements Initializable {
     public TextField clothesNameTextField;
     public TextField clothesManifacturerTextField;
     public TextField clothesTypeTextField;
     public TextField clothesQuantityTextField;
     public TextField clothesPriceTextField;
     public TextField clothesYOPTextField;
+    public CheckBox sCheckboxId;
+    public CheckBox mCheckboxId;
+    public CheckBox lCheckboxId;
+    public CheckBox xlCheckboxId;
+    public Label enterDataLblId;
+    public TextField clothesImageTextField;
+    public TextField clothesSerialNumber;
     @FXML
-    TextField clothesImageTextField;
+    Button addNewClotheBtn;
+    Clothes clothes;
+    ClothesClass clothesClass;
     private Stage stage;
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        clothesClass = new ClothesClass(
+                clothesNameTextField,
+                clothesManifacturerTextField,
+                clothesTypeTextField,
+                clothesQuantityTextField,
+                clothesPriceTextField,
+                clothesYOPTextField,
+                sCheckboxId,
+                mCheckboxId,
+                lCheckboxId,
+                xlCheckboxId,
+                clothesImageTextField,
+                clothesSerialNumber
+        );
+
+    }
 
     @Override
     public void start(Stage stage) {
         this.stage = stage;
+
     }
 
     @FXML
@@ -31,13 +68,53 @@ public class CustomClothesDialogBoxController extends Application {
     }
 
     public void addNewClothesBtn() {
-        HelloController.clothesObservableList.add(new Clothes(clothesManifacturerTextField.getText(),
-                Integer.parseInt(clothesYOPTextField.getText()), clothesNameTextField.getText(),
-                Integer.parseInt(clothesQuantityTextField.getText()),
-                Double.parseDouble(clothesPriceTextField.getText()),
-                clothesImageTextField.getText(),
-                clothesTypeTextField.getText(),
-                Constants.sizes.XL));
-        Constants.dialog.close();
+
+        if (clothesClass.isValid()) {
+            if (clothesPriceTextField.getText().matches("\\d*(\\.\\d*)?") && clothesQuantityTextField.getText().matches("[0-9]+") && clothesYOPTextField.getText().matches("[0-9]+")) {
+                if (clothes == null) {
+                    HelloApplication.clothesObservableList.add((Clothes) clothesClass.insertNewItem());
+                } else {
+                    clothesClass.updateItem(clothes);
+                }
+                Constants.dialog.close();
+            } else {
+                enterDataLblId.setText("Enter Right Data");
+
+                if (!clothesPriceTextField.getText().matches("\\d*(\\.\\d*)?")) {
+                    clothesPriceTextField.setText("");
+                }
+                if (!clothesQuantityTextField.getText().matches("[0-9]+")) {
+                    clothesQuantityTextField.setText("");
+                }
+                if (!clothesYOPTextField.getText().matches("[0-9]+")) {
+                    clothesYOPTextField.setText("");
+                }
+            }
+        } else {
+            enterDataLblId.setText("Enter Full Data");
+        }
+    }
+
+    public void initData(Clothes clothes) {
+        this.clothes = clothes;
+        if (clothes != null) {
+            addNewClotheBtn.setText("Update Clothes");
+            clothesNameTextField.setText(clothes.getName());
+            clothesSerialNumber.setText(clothes.getSerialNumber());
+            clothesPriceTextField.setText(String.valueOf(clothes.getPrice()));
+            clothesYOPTextField.setText(String.valueOf(clothes.getYearOfproduction()));
+            clothesQuantityTextField.setText(String.valueOf(clothes.getQuantity()));
+            clothesImageTextField.setText(clothes.getImage());
+            clothesManifacturerTextField.setText(clothes.getSupplier());
+            clothesTypeTextField.setText(clothes.getType());
+            for (int i = 0; i < clothes.getSize().size(); i++) {
+                switch (clothes.getSize().get(i)) {
+                    case XL -> xlCheckboxId.setSelected(clothes.getSize().get(i).equals(Constants.Sizes.XL));
+                    case L -> lCheckboxId.setSelected(clothes.getSize().get(i).equals(Constants.Sizes.L));
+                    case M -> mCheckboxId.setSelected(clothes.getSize().get(i).equals(Constants.Sizes.M));
+                    case S -> sCheckboxId.setSelected(clothes.getSize().get(i).equals(Constants.Sizes.S));
+                }
+            }
+        }
     }
 }

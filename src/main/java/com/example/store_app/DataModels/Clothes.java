@@ -2,28 +2,37 @@ package com.example.store_app.DataModels;
 
 import com.example.store_app.Additions.Constants;
 
+import java.util.ArrayList;
+
 public class Clothes extends OtherProducts implements ReturnString {
-    Constants.sizes size;
+    ArrayList<Constants.Sizes> sizes;
     private String type;
 
-    public Clothes(String manufacturer, int yearOfproduction, String name, int quantity, double price, String image, String type, Constants.sizes size) {
-        super(manufacturer, yearOfproduction, name, quantity, price, image);
+    public Clothes(String manufacturer, int yearOfproduction, String name, int quantity, double price, String image, String type, ArrayList<Constants.Sizes> sizes, String serialNumber) {
+        super(manufacturer, yearOfproduction, name, quantity, price, image, serialNumber);
         this.type = type;
-        this.size = size;
+        this.sizes = sizes;
     }
+
 
     public String getType() {
         return type;
     }
 
-    public Constants.sizes getSize() {
-        return size;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public ArrayList<Constants.Sizes> getSize() {
+        return sizes;
     }
 
     @Override
     public String getString() {
-        return "Name: " + getName() + "\nPrice: " + getPrice() + " EGP" + "\nQuantity: " + getQuantity() + "\nManufacturer: " + getManufacturer() + "\nYear of production: " + getYearOfproduction() + "\nMaterial: " + getType() + "\nSize: " + getSize();
+        return "Name: " + getName() + "\nSerial Number: " + getSerialNumber() + "\nPrice: " + getPrice() + " EGP" + "\nQuantity: " + getQuantity() + "\nSupplier: " + getSupplier() + "\nYear of production: " + getYearOfproduction() + "\nType: " + getType() + "\nSizes: " + getSize();
     }
 
-
+    public void setSizes(ArrayList<Constants.Sizes> sizes) {
+        this.sizes = sizes;
+    }
 }

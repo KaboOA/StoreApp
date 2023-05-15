@@ -24,6 +24,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
 
             </rowConstraints>
             <Text text="Name">
@@ -31,41 +32,47 @@
                     <Insets/>
                 </GridPane.margin>
             </Text>
-            <Text text="Price" GridPane.rowIndex="1">
+            <Text text="Price" GridPane.rowIndex="2">
 
             </Text>
-            <Text text="Image" GridPane.rowIndex="2">
+            <Text text="Image" GridPane.rowIndex="3">
 
             </Text>
-            <TextField GridPane.columnIndex="1"/>
-            <TextField prefHeight="26.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-            <TextField fx:id="dairyImageTextField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-            <Button mnemonicParsing="false" onAction="#dairyChooseImageBtnClicked" text="..."
-                    GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <TextField fx:id="dairyNameTextField" GridPane.columnIndex="1"/>
+            <TextField fx:id="dairyPriceTextField" prefHeight="26.0" prefWidth="169.0" GridPane.columnIndex="1"
+                       GridPane.rowIndex="2"/>
+            <TextField fx:id="dairyImageTextField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <Button mnemonicParsing="false" onAction="#dairyChooseImageBtnClicked" text="..." GridPane.columnIndex="2"
+                    GridPane.rowIndex="3">
                 <GridPane.margin>
                     <Insets left="20.0"/>
                 </GridPane.margin>
             </Button>
-            <Text text="Quantity" GridPane.rowIndex="3">
+            <Text text="Quantity" GridPane.rowIndex="4">
 
             </Text>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-            <Text text="Date of Production" GridPane.rowIndex="4">
+            <TextField fx:id="dairyQuantityTextField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            <TextField fx:id="dairyTypeTextField" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+            <Text text="Date of Production" GridPane.rowIndex="5">
 
             </Text>
-            <Text text="Date of Expiration" wrappingWidth="115.0" GridPane.rowIndex="5">
+            <Text text="Date of Expiration" wrappingWidth="115.0" GridPane.rowIndex="6">
 
             </Text>
-            <Text text="Type" GridPane.rowIndex="6">
+            <Text text="Type" GridPane.rowIndex="7">
 
             </Text>
-            <HBox alignment="BOTTOM_CENTER" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#addNewDairyBtn"
-                        text="Add New Dairy"/>
+            <HBox alignment="BOTTOM_CENTER" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                <Button fx:id="addNewDairyBtnId" alignment="BOTTOM_LEFT" mnemonicParsing="false"
+                        onAction="#addNewDairyBtn" text="Add New Dairy"/>
             </HBox>
+            <DatePicker fx:id="dairyProdDateTextField" editable="false" prefHeight="26.0" prefWidth="211.0"
+                        GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            <DatePicker fx:id="dairyExpDateTextField" editable="false" prefHeight="26.0" prefWidth="198.0"
+                        GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            <Label fx:id="enterAllDataLbl" GridPane.rowIndex="8"/>
+            <Label text="Serial Number" GridPane.rowIndex="1"/>
+            <TextField fx:id="dairySerialNumber" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
         </GridPane>
     </content>
     <ButtonType fx:constant="CANCEL"/>

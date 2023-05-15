@@ -1,10 +1,12 @@
 package com.example.store_app.DataModels;
 
+import java.time.LocalDate;
+
 public class Dairy extends Food implements ReturnString {
     private String type;
 
-    public Dairy(String type, String dateOfproduction, String dateOfexpiration, String name, int quantity, double price, String image) {
-        super(dateOfproduction, dateOfexpiration, name, quantity, price, image);
+    public Dairy(String type, LocalDate dateOfproduction, LocalDate dateOfexpiration, String name, int quantity, double price, String image, String serialNumber) {
+        super(dateOfproduction, dateOfexpiration, name, quantity, price, image, serialNumber);
         this.type = type;
     }
 
@@ -12,9 +14,12 @@ public class Dairy extends Food implements ReturnString {
         return type;
     }
 
-    @Override
-    public String getString() {
-        return "Name: " + getName() + "\nPrice: " + getPrice() + " EGP" + "\nQuantity: " + getQuantity() + "\nDate of production: " + getDateOfproduction() + "\nDate of expiration: " + getDateOfexpiration() + "\nType: " + getType();
+    public void setType(String type) {
+        this.type = type;
     }
 
+    @Override
+    public String getString() {
+        return "Name: " + getName() + "\nSerial Number: " + getSerialNumber() + "\nPrice: " + getPrice() + " EGP" + "\nQuantity: " + getQuantity() + "\nDate of production: " + getDateOfproduction().toString() + "\nDate of expiration: " + getDateOfexpiration().toString() + "\nType: " + getType();
+    }
 }

@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<DialogPane xmlns:fx="http://javafx.com/fxml/1" fx:id="clothesDialogPane" xmlns="http://javafx.com/javafx/17.0.2-ea"
+<DialogPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea"
             fx:controller="com.example.store_app.Controllers.CustomClothesDialogBoxController">
     <content>
         <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
@@ -25,6 +25,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
 
             </rowConstraints>
             <Text text="Name">
@@ -32,72 +33,78 @@
                     <Insets/>
                 </GridPane.margin>
             </Text>
-            <Text text="Price" GridPane.rowIndex="1">
+            <Text text="Price" GridPane.rowIndex="2">
 
             </Text>
-            <Text text="Image" GridPane.rowIndex="2">
+            <Text text="Image" GridPane.rowIndex="3">
 
             </Text>
             <TextField fx:id="clothesNameTextField" GridPane.columnIndex="1"/>
             <TextField fx:id="clothesPriceTextField" prefHeight="26.0" prefWidth="169.0" GridPane.columnIndex="1"
-                       GridPane.rowIndex="1"/>
-            <TextField fx:id="clothesImageTextField" editable="false" GridPane.columnIndex="1"
                        GridPane.rowIndex="2"/>
-            <Button mnemonicParsing="false" onAction="#clothesChooseImageBtnClicked" text="..."
-                    GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <TextField fx:id="clothesImageTextField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <Button mnemonicParsing="false" onAction="#clothesChooseImageBtnClicked" text="..." GridPane.columnIndex="2"
+                    GridPane.rowIndex="3">
                 <GridPane.margin>
                     <Insets left="20.0"/>
                 </GridPane.margin>
             </Button>
-            <Text text="Quantity" GridPane.rowIndex="3">
+            <Text text="Quantity" GridPane.rowIndex="4">
                 <GridPane.margin>
                     <Insets/>
                 </GridPane.margin>
             </Text>
-            <TextField fx:id="clothesQuantityTextField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-            <TextField fx:id="clothesManifacturerTextField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-            <TextField fx:id="clothesYOPTextField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-            <TextField fx:id="clothesTypeTextField" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-            <Text text="Manufacturer" GridPane.rowIndex="4">
+            <TextField fx:id="clothesQuantityTextField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            <TextField fx:id="clothesManifacturerTextField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            <TextField fx:id="clothesYOPTextField" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            <TextField fx:id="clothesTypeTextField" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+            <Text text="Supplier" GridPane.rowIndex="5">
                 <GridPane.margin>
                     <Insets/>
                 </GridPane.margin>
             </Text>
-            <Text text="Year of Production" wrappingWidth="115.0" GridPane.rowIndex="5">
+            <Text text="Year of Production" wrappingWidth="115.0" GridPane.rowIndex="6">
                 <GridPane.margin>
                     <Insets/>
                 </GridPane.margin>
             </Text>
-            <Text text="Type" GridPane.rowIndex="6">
+            <Text text="Type" GridPane.rowIndex="7">
                 <GridPane.margin>
                     <Insets/>
                 </GridPane.margin>
             </Text>
-            <Text text="Sizes" GridPane.rowIndex="7">
+            <Text text="Sizes" GridPane.rowIndex="8">
                 <GridPane.margin>
                     <Insets/>
                 </GridPane.margin>
             </Text>
-            <CheckBox mnemonicParsing="false" text="XL" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-            <CheckBox mnemonicParsing="false" text="L" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <CheckBox mnemonicParsing="false" text="XL" GridPane.columnIndex="1" GridPane.rowIndex="8"
+                      fx:id="xlCheckboxId"/>
+            <CheckBox fx:id="lCheckboxId" mnemonicParsing="false" text="L" GridPane.columnIndex="1"
+                      GridPane.rowIndex="8">
                 <GridPane.margin>
                     <Insets left="45.0"/>
                 </GridPane.margin>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" text="M" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <CheckBox fx:id="mCheckboxId" mnemonicParsing="false" text="M" GridPane.columnIndex="1"
+                      GridPane.rowIndex="8">
                 <GridPane.margin>
                     <Insets left="85.0"/>
                 </GridPane.margin>
             </CheckBox>
-            <CheckBox mnemonicParsing="false" text="S" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <CheckBox fx:id="sCheckboxId" mnemonicParsing="false" text="S" GridPane.columnIndex="1"
+                      GridPane.rowIndex="8">
                 <GridPane.margin>
                     <Insets left="135.0"/>
                 </GridPane.margin>
             </CheckBox>
-            <HBox alignment="BOTTOM_CENTER" GridPane.columnIndex="1" GridPane.rowIndex="8">
-                <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#addNewClothesBtn"
-                        text="Add New Clothes"/>
+            <HBox alignment="BOTTOM_CENTER" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                <Button fx:id="addNewClotheBtn" alignment="BOTTOM_LEFT" mnemonicParsing="false"
+                        onAction="#addNewClothesBtn" text="Add New Clothes"/>
             </HBox>
+            <Label fx:id="enterDataLblId" GridPane.rowIndex="9"/>
+            <Label text="Serial Number" GridPane.rowIndex="1"/>
+            <TextField fx:id="clothesSerialNumber" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
         </GridPane>
     </content>
     <ButtonType fx:constant="CANCEL"/>
