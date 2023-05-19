@@ -52,6 +52,7 @@ public class DairyClass implements ClassesBasics {
     @Override
     public boolean isValid() {
         return !(dairyImageTextField.getText().isEmpty() ||
+                dairyImageTextField.getText().equals("Failed to get Image") ||
                 dairyNameTextField.getText().isEmpty() ||
                 dairyPriceTextField.getText().isEmpty() ||
                 dairyQuantityTextField.getText().isEmpty() ||

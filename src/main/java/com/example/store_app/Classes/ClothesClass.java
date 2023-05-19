@@ -98,6 +98,7 @@ public class ClothesClass implements ClassesBasics {
     public boolean isValid() {
         return !(clothesNameTextField.getText().isEmpty() ||
                 clothesImageTextField.getText().equals("Failed to get Image") ||
+                clothesImageTextField.getText().isEmpty() ||
                 clothesManifacturerTextField.getText().isEmpty() ||
                 clothesPriceTextField.getText().isEmpty() ||
                 clothesQuantityTextField.getText().isEmpty() ||

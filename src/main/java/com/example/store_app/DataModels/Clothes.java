@@ -5,7 +5,7 @@ import com.example.store_app.Additions.Constants;
 import java.util.ArrayList;
 
 public class Clothes extends OtherProducts implements ReturnString {
-    ArrayList<Constants.Sizes> sizes;
+    private ArrayList<Constants.Sizes> sizes;
     private String type;
 
     public Clothes(String Supplier, int yearOfproduction, String name, int quantity, double price, String image, String type, ArrayList<Constants.Sizes> sizes, String serialNumber) {
