@@ -10,7 +10,6 @@ public abstract class Item {
     private double price;
     private String image;
 
-
     public Item(String name, int quantity, double price, String image, String serialNumber) {
         this.name = name;
         this.id = globalId;

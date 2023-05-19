@@ -8,8 +8,8 @@ public class Clothes extends OtherProducts implements ReturnString {
     ArrayList<Constants.Sizes> sizes;
     private String type;
 
-    public Clothes(String manufacturer, int yearOfproduction, String name, int quantity, double price, String image, String type, ArrayList<Constants.Sizes> sizes, String serialNumber) {
-        super(manufacturer, yearOfproduction, name, quantity, price, image, serialNumber);
+    public Clothes(String Supplier, int yearOfproduction, String name, int quantity, double price, String image, String type, ArrayList<Constants.Sizes> sizes, String serialNumber) {
+        super(Supplier, yearOfproduction, name, quantity, price, image, serialNumber);
         this.type = type;
         this.sizes = sizes;
     }

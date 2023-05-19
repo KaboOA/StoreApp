@@ -57,14 +57,29 @@ public class CustomDairyDialogBoxController extends Application implements Initi
 
     @FXML
     void addNewDairyBtn() {
+        boolean isUnique = true;
         if (dairyClass.isValid()) {
             if (dairyPriceTextField.getText().matches("\\d*(\\.\\d*)?") && dairyQuantityTextField.getText().matches("[0-9]+")) {
                 if (dairy == null) {
-                    HelloApplication.dairyObservableList.add((Dairy) dairyClass.insertNewItem());
+                    for (Dairy c : HelloApplication.dairyObservableList) {
+                        if (dairySerialNumber.getText().equals(c.getSerialNumber())) {
+                            enterAllDataLbl.setText("This Serial Number Already Exist");
+                            dairySerialNumber.setText("");
+                            isUnique = false;
+                            break;
+                        }
+                    }
+                    if (isUnique) {
+                        HelloApplication.dairyObservableList.add((Dairy) dairyClass.insertNewItem());
+                        Constants.dialog.close();
+                    } else {
+                        enterAllDataLbl.setText("Serial Number \nAlready Used");
+                        dairySerialNumber.setText("");
+                    }
                 } else {
                     dairyClass.updateItem(dairy);
+                    Constants.dialog.close();
                 }
-                Constants.dialog.close();
             } else {
                 enterAllDataLbl.setText("Enter Right Data");
                 if (!dairyPriceTextField.getText().matches("\\d*(\\.\\d*)?")) {
@@ -75,13 +90,14 @@ public class CustomDairyDialogBoxController extends Application implements Initi
                 }
             }
         } else {
-            enterAllDataLbl.setText("Enter All Data");
+            enterAllDataLbl.setText("Enter Full Data");
         }
     }
 
     public void initData(Dairy dairy) {
         this.dairy = dairy;
         if (dairy != null) {
+            dairySerialNumber.setEditable(false);
             addNewDairyBtnId.setText("Update Dairy");
             dairyImageTextField.setText(dairy.getImage());
             dairyNameTextField.setText(dairy.getName());

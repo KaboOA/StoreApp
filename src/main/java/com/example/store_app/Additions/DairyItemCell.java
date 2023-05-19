@@ -39,9 +39,9 @@ public class DairyItemCell extends ListCell<Dairy> {
         ImageView imageView = new ImageView(dairy.getImage());
         imageView.setFitWidth(50);
         imageView.setFitHeight(50);
-        Font f1 = Font.font("system", FontWeight.BOLD, 15);
+        Font f1 = Font.font("system", FontWeight.BOLD, 13.5);
         Text name = new Text(dairy.getName());
-        name.setWrappingWidth(180);
+        name.setWrappingWidth(225);
         // name.setTextOverrun(OverrunStyle.ELLIPSIS);
         name.setFont(f1);
         Text price = new Text(dairy.getPrice() + " EGP");
@@ -52,7 +52,7 @@ public class DairyItemCell extends ListCell<Dairy> {
         vBox.setPrefWidth(220);
         Text quantity = new Text(String.valueOf(dairy.getQuantity()));
         Button del = new Button();
-        del.setGraphic(addImage("D:\\My_Works\\Store Java GUI Project\\trash-6-512.png"));
+        del.setGraphic(addImage("D:\\My_Works\\Store Java GUI Project\\Project Icons\\trash.png"));
         del.setOnAction(actionEvent -> {
             if (Constants.isAdmin) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -70,7 +70,7 @@ public class DairyItemCell extends ListCell<Dairy> {
             }
         });
         Button edit = new Button();
-        edit.setGraphic(addImage("D:\\My_Works\\Store Java GUI Project\\39d0ca31697da0067cc6fc38e42d849d.png"));
+        edit.setGraphic(addImage("D:\\My_Works\\Store Java GUI Project\\Project Icons\\edit.png"));
         edit.setOnAction(actionEvent -> {
             if (isAdmin) {
                 CustomDairyDialogBoxController dairyDialogBoxController = Constants.showCustomDialogBox(HelloApplication.class.getResource("CustomDairyDialogBox.fxml"), "Update Dairy").getController();

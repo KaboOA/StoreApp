@@ -69,15 +69,29 @@ public class CustomClothesDialogBoxController extends Application implements Ini
     }
 
     public void addNewClothesBtn() {
-
+        boolean isUnique = true;
         if (clothesClass.isValid()) {
             if (clothesPriceTextField.getText().matches("\\d*(\\.\\d*)?") && clothesQuantityTextField.getText().matches("[0-9]+") && clothesYOPTextField.getText().matches("[0-9]+")) {
                 if (clothes == null) {
-                    HelloApplication.clothesObservableList.add((Clothes) clothesClass.insertNewItem());
+                    for (Clothes c : HelloApplication.clothesObservableList) {
+                        if (clothesSerialNumber.getText().equals(c.getSerialNumber())) {
+                            enterDataLblId.setText("This Serial Number Already Exist");
+                            clothesSerialNumber.setText("");
+                            isUnique = false;
+                            break;
+                        }
+                    }
+                    if (isUnique) {
+                        HelloApplication.clothesObservableList.add((Clothes) clothesClass.insertNewItem());
+                        Constants.dialog.close();
+                    } else {
+                        enterDataLblId.setText("Serial Number \nAlready Used");
+                        clothesSerialNumber.setText("");
+                    }
                 } else {
                     clothesClass.updateItem(clothes);
+                    Constants.dialog.close();
                 }
-                Constants.dialog.close();
             } else {
                 enterDataLblId.setText("Enter Right Data");
 
@@ -99,6 +113,7 @@ public class CustomClothesDialogBoxController extends Application implements Ini
     public void initData(Clothes clothes) {
         this.clothes = clothes;
         if (clothes != null) {
+            clothesSerialNumber.setEditable(false);
             addNewClotheBtn.setText("Update Clothes");
             clothesNameTextField.setText(clothes.getName());
             clothesSerialNumber.setText(clothes.getSerialNumber());

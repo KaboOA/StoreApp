@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Constants {
@@ -76,6 +77,28 @@ public class Constants {
         imageView.setFitWidth(10);
         imageView.setFitHeight(10);
         return imageView;
+    }
+
+    public static ArrayList<Sizes> sizes1() {
+        ArrayList<Constants.Sizes> sizes = new ArrayList<>();
+        sizes.add(Constants.Sizes.XL);
+        sizes.add(Constants.Sizes.L);
+        sizes.add(Constants.Sizes.M);
+        sizes.add(Constants.Sizes.S);
+        return sizes;
+    }
+
+    public static ArrayList<Sizes> sizes2() {
+        ArrayList<Constants.Sizes> sizes = new ArrayList<>();
+        sizes.add(Constants.Sizes.XL);
+        sizes.add(Constants.Sizes.L);
+        return sizes;
+    }
+
+    public static ArrayList<Sizes> sizes3() {
+        ArrayList<Constants.Sizes> sizes = new ArrayList<>();
+        sizes.add(Constants.Sizes.S);
+        return sizes;
     }
 
     public enum Sizes {XL, L, M, S}

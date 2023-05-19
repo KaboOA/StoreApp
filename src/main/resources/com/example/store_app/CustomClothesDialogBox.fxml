@@ -102,7 +102,7 @@
                 <Button fx:id="addNewClotheBtn" alignment="BOTTOM_LEFT" mnemonicParsing="false"
                         onAction="#addNewClothesBtn" text="Add New Clothes"/>
             </HBox>
-            <Label fx:id="enterDataLblId" GridPane.rowIndex="9"/>
+            <Label fx:id="enterDataLblId" prefHeight="66.0" prefWidth="110.0" GridPane.rowIndex="9"/>
             <Label text="Serial Number" GridPane.rowIndex="1"/>
             <TextField fx:id="clothesSerialNumber" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
         </GridPane>

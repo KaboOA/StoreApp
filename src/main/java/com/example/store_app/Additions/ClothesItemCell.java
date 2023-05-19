@@ -40,9 +40,9 @@ public class ClothesItemCell extends ListCell<Clothes> {
         ImageView imageView = new ImageView(clothes.getImage());
         imageView.setFitWidth(50);
         imageView.setFitHeight(50);
-        Font f1 = Font.font("system", FontWeight.BOLD, 15);
+        Font f1 = Font.font("system", FontWeight.BOLD, 13.5);
         Text name = new Text(clothes.getName());
-        name.setWrappingWidth(180);
+        name.setWrappingWidth(225);
         // name.setTextOverrun(OverrunStyle.ELLIPSIS);
         name.setFont(f1);
         Text price = new Text(clothes.getPrice() + " EGP");
@@ -53,7 +53,7 @@ public class ClothesItemCell extends ListCell<Clothes> {
         vBox.setPrefWidth(220);
         Text quantity = new Text(String.valueOf(clothes.getQuantity()));
         Button del = new Button();
-        del.setGraphic(addImage("D:\\My_Works\\Store Java GUI Project\\trash-6-512.png"));
+        del.setGraphic(addImage("D:\\My_Works\\Store Java GUI Project\\Project Icons\\trash.png"));
         del.setOnAction(actionEvent -> {
             if (isAdmin) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -72,7 +72,7 @@ public class ClothesItemCell extends ListCell<Clothes> {
 
         });
         Button edit = new Button();
-        edit.setGraphic(addImage("D:\\My_Works\\Store Java GUI Project\\39d0ca31697da0067cc6fc38e42d849d.png"));
+        edit.setGraphic(addImage("D:\\My_Works\\Store Java GUI Project\\Project Icons\\edit.png"));
         edit.setOnAction(actionEvent -> {
             if (isAdmin) {
                 CustomClothesDialogBoxController clothesDialogBoxController = Constants.showCustomDialogBox(HelloApplication.class.getResource("CustomClothesDialogBox.fxml"), "Update Clothes").getController();
