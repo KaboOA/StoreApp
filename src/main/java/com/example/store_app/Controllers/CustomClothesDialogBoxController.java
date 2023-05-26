@@ -71,7 +71,7 @@ public class CustomClothesDialogBoxController extends Application implements Ini
     public void addNewClothesBtn() {
         boolean isUnique = true;
         if (clothesClass.isValid()) {
-            if (clothesPriceTextField.getText().matches("\\d*(\\.\\d*)?") && clothesQuantityTextField.getText().matches("[0-9]+") && clothesYOPTextField.getText().matches("[0-9]+")) {
+            if ((clothesPriceTextField.getText().matches("\\d*(\\.\\d*)?") && Integer.parseInt(clothesPriceTextField.getText()) > 0) && (clothesQuantityTextField.getText().matches("[0-9]+") && Integer.parseInt(clothesQuantityTextField.getText()) > 0) && (clothesYOPTextField.getText().matches("[0-9]+") && Integer.parseInt(clothesYOPTextField.getText()) > 0)) {
                 if (clothes == null) {
                     for (Clothes c : HelloApplication.clothesObservableList) {
                         if (clothesSerialNumber.getText().equals(c.getSerialNumber())) {
@@ -95,13 +95,13 @@ public class CustomClothesDialogBoxController extends Application implements Ini
             } else {
                 enterDataLblId.setText("Enter Right Data");
 
-                if (!clothesPriceTextField.getText().matches("\\d*(\\.\\d*)?")) {
+                if (!clothesPriceTextField.getText().matches("\\d*(\\.\\d*)?") || Integer.parseInt(clothesPriceTextField.getText()) <= 0) {
                     clothesPriceTextField.setText("");
                 }
-                if (!clothesQuantityTextField.getText().matches("[0-9]+")) {
+                if (!clothesQuantityTextField.getText().matches("[0-9]+") || Integer.parseInt(clothesQuantityTextField.getText()) <= 0) {
                     clothesQuantityTextField.setText("");
                 }
-                if (!clothesYOPTextField.getText().matches("[0-9]+")) {
+                if (!clothesYOPTextField.getText().matches("[0-9]+") || Integer.parseInt(clothesYOPTextField.getText()) <= 0) {
                     clothesYOPTextField.setText("");
                 }
             }

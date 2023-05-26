@@ -59,7 +59,7 @@ public class CustomDairyDialogBoxController extends Application implements Initi
     void addNewDairyBtn() {
         boolean isUnique = true;
         if (dairyClass.isValid()) {
-            if (dairyPriceTextField.getText().matches("\\d*(\\.\\d*)?") && dairyQuantityTextField.getText().matches("[0-9]+")) {
+            if ((dairyPriceTextField.getText().matches("\\d*(\\.\\d*)?") && Integer.parseInt(dairyPriceTextField.getText()) > 0) && (dairyQuantityTextField.getText().matches("[0-9]+") && Integer.parseInt(dairyQuantityTextField.getText()) > 0)) {
                 if (dairy == null) {
                     for (Dairy c : HelloApplication.dairyObservableList) {
                         if (dairySerialNumber.getText().equals(c.getSerialNumber())) {
@@ -82,10 +82,10 @@ public class CustomDairyDialogBoxController extends Application implements Initi
                 }
             } else {
                 enterAllDataLbl.setText("Enter Right Data");
-                if (!dairyPriceTextField.getText().matches("\\d*(\\.\\d*)?")) {
+                if (!dairyPriceTextField.getText().matches("\\d*(\\.\\d*)?") || Integer.parseInt(dairyPriceTextField.getText()) <= 0) {
                     dairyPriceTextField.setText("");
                 }
-                if (!dairyQuantityTextField.getText().matches("[0-9]+")) {
+                if (!dairyQuantityTextField.getText().matches("[0-9]+") || Integer.parseInt(dairyQuantityTextField.getText()) <= 0) {
                     dairyQuantityTextField.setText("");
                 }
             }

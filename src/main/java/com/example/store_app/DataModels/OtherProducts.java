@@ -13,6 +13,7 @@ public abstract class OtherProducts extends Item {
 
 
     public String getSupplier() {
+
         return Supplier;
     }
 

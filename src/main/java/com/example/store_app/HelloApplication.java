@@ -34,7 +34,10 @@ public class HelloApplication extends Application {
 
         initializeClothesData();
         initializeDairyData();
+
+        
     }
+
 
     void initializeClothesData() {
         clothesObservableList = FXCollections.observableArrayList(
